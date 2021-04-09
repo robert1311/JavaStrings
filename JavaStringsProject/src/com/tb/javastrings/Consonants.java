@@ -8,6 +8,8 @@ public class Consonants {
 		String sentence = "The quick brown fox jumps over the lazy brown dog";
 		ArrayList<Character> vowels = new ArrayList();
 		int cCount = 0;
+		String newSentence ="";
+		char newChar = '*';
 		vowels.add('a');
 		vowels.add('e');
 		vowels.add('i');
@@ -15,13 +17,18 @@ public class Consonants {
 		vowels.add('u');
 		
 		for(int i = 0; i < sentence.length(); i++) {
-			if(!vowels.contains(sentence.charAt(i)) & sentence.charAt(i) != ' ') {
+			char currentChar = sentence.charAt(i);
+			if(!vowels.contains(currentChar) & sentence.charAt(i) != ' ') {
 				cCount++;
-				sentence.replace(sentence.charAt(i), '*');
+				currentChar = newChar;
 			}
+			newSentence += currentChar;
 		}
-		System.out.println("There are " + cCount + " consonants in the sentence");
+		System.out.println("Current Sentence:");
 		System.out.println(sentence);
+		System.out.println("There are " + cCount + " consonants in this sentence\n");
+		System.out.println("The consonants have been replaced with " + newChar 
+				+ " in the sentence below. \n" + newSentence);
 	}
 
 }
